@@ -1,1 +1,2 @@
-TO DO
+1. Explenation
+2. Instructions
