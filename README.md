@@ -10,11 +10,10 @@ A CLI tool that indexes a given folder and allows efficient searching for string
 3. Make sure to have [gradle](https://gradle.org/install/) installed on your machine
 4. Use the command `gradle build` to build the app
 5. Use the command `gradlew run --args=""` to run the app
-6. Setup `allowedExtensions.txt` file int the root directory
-   e.g.
-   ```txt
-   kt
-   py```
+6. Setup `allowedExtensions.txt` file int the root directorye.g.
+   ``` txt
+       kt
+       py ```
 
 ### Arguments guide 
 
