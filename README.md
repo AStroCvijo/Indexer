@@ -12,9 +12,9 @@ A CLI tool that indexes a given folder and allows efficient searching for string
 5. Use the command `gradlew run --args=""` to run the app
 6. Setup `allowedExtensions.txt` file int the root directory
    e.g.
-   ``txt <br>
-    kt <br>
-    py``
+   `txt` <br>
+   `kt` <br>
+   `py`
 
 ### Arguments guide 
 
