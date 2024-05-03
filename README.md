@@ -21,3 +21,8 @@ This will force the app to index the folder again and save it to `.\\indexedFold
 
 `-query or -q` followed by the string you want to search for e.g. `print`
 This will print all the occurrences of `print` in the given folder
+
+### Example usage
+`gradlew run --args="-p .\\Data -f -q print"`
+This will index `.\\Data folder` and print all the occurrences of `print` in it
+
