@@ -24,5 +24,5 @@ This will print all the occurrences of `print` in the given folder
 
 ### Example usage
 `gradlew run --args="-p .\\Data -f -q print"`
-This will index `.\\Data folder` and print all the occurrences of `print` in it
+This will index `.\\Data folder` and print all the occurrences of `print`
 
