@@ -16,7 +16,7 @@ A CLI tool that indexes a given folder and allows efficient searching for string
 `-path or -p` followed by path to the folder you want to index e.g. `.\\Data`
 This will index the `.\\Data` folder and save it to `.\\indexedFolders` (the starting location of .\\ is inside the app folder, so either move to folder you want to index there or navigate to it)
 
-'-force or -f'
+`-force or -f`
 This will force the app to index the folder again and save it to `.\\indexedFolders` (usefull if you want to re-index a folder)
 
 `-query or -q` followed by the string you want to search for e.g. `print`
