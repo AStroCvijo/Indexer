@@ -1,7 +1,8 @@
 
 # File Indexer - CLI tool
 
-A CLI tool that indexes a given folder and allows efficient searching for string occurrences.
+A CLI tool that indexes a given folder and allows efficient searching for string occurrences. <br />
+***The code changed after the deadline for JetBrains internship application because I found a better approach to the problem. If you only find the code that was submitted before the deadline relavant here is that version of the code [Original Code](https://github.com/AStroCvijo/Indexer_2/tree/2c36111e3e33ed813ecdb60995e40ebc20edd68f)***
 
 ## Instructions
 
@@ -31,6 +32,9 @@ This will force the app to index the folder again and save it to `.\\indexedFold
 
 `-query or -q` followed by the string you want to search for e.g. `print`
 This will print all the occurrences of `print` in the given folder
+
+`-case or -c`
+This will indicate that you want the search to be case-sensitive (when the folder is indexed it's either for case-sensitive or case-insensitive search, so forcing a re-index is suggested)
 
 ### Example usage
 `gradlew run --args="-p .\\Data -f -q print"`
