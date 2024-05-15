@@ -104,23 +104,27 @@ fun main(args: Array<String>) {
                 saveTrieToJson(trie.root, trieFilePath)
             }
 
-            // If query is true print all the occurrences of query searchString
+            // Starts prompting the user for query's
             if(query){
+                // Search using the trie structure
+                val searchResults = trie.searchSubstrings(searchString)
 
                 // Print search results
-                    if (trie.search(searchString)) {
-                        println("Search Results:")
-                            // Retrieve token information from the HashMap
-                            val tokenInfoList = tokenMap[searchString.hashCode().toString()]
-                            tokenInfoList?.forEach { tokenInfo ->
-                                println("String '$searchString' found in file '${tokenInfo.fp}' at position ${tokenInfo.p}")
-                            }
-                            if (tokenInfoList != null) {
+                if (searchResults.isNotEmpty()) {
+                    println("Search Results:")
+                    searchResults.forEach { token ->
+                        // Retrieve token information from the HashMap
+                        val tokenInfoList = tokenMap[token.hashCode().toString()]
+                        tokenInfoList?.forEach { tokenInfo ->
+                            println("String '$token' found in file '${tokenInfo.fp}' at position ${tokenInfo.p}")
+                        }
+                        if (tokenInfoList != null) {
                             println("Found ${tokenInfoList.size} occurrences in the indexed folder")
-                            }
-                    } else {
-                        println("No matches found for '$searchString'.")
+                        }
                     }
+                } else {
+                    println("No matches found for '$searchString'.")
+                }
             }
             else{
                 return
@@ -137,23 +141,27 @@ fun main(args: Array<String>) {
             // Save trie to JSON file
             saveTrieToJson(trie.root, trieFilePath)
 
-            // If query is true print all the occurrences of query searchString
+            // Starts prompting the user for query's
             if(query){
+                // Search using the trie structure
+                val searchResults = trie.searchSubstrings(searchString)
 
                 // Print search results
-                    if (trie.search(searchString)) {
-                        println("Search Results:")
-                            // Retrieve token information from the HashMap
-                            val tokenInfoList = tokenMap[searchString.hashCode().toString()]
-                            tokenInfoList?.forEach { tokenInfo ->
-                                println("String '$searchString' found in file '${tokenInfo.fp}' at position ${tokenInfo.p}")
-                            }
-                            if (tokenInfoList != null) {
+                if (searchResults.isNotEmpty()) {
+                    println("Search Results:")
+                    searchResults.forEach { token ->
+                        // Retrieve token information from the HashMap
+                        val tokenInfoList = tokenMap[token.hashCode().toString()]
+                        tokenInfoList?.forEach { tokenInfo ->
+                                println("String '$token' found in file '${tokenInfo.fp}' at position ${tokenInfo.p}")
+                        }
+                        if (tokenInfoList != null) {
                             println("Found ${tokenInfoList.size} occurrences in the indexed folder")
-                            }
-                    } else {
-                        println("No matches found for '$searchString'.")
+                        }
                     }
+                } else {
+                    println("No matches found for '$searchString'.")
+                }
             }
             else{
                 return
