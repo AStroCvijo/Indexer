@@ -34,7 +34,7 @@ This will force the app to index the folder again and save it to `.\\indexedFold
 This will print all the occurrences of `print` in the given folder
 
 `-case or -c`
-This will indicate that you want the search to be case-sensitive (when the folder is indexed it's either for case-sensitive or case-insensitive search, so forcing a re-index is suggested)
+This will indicate that you want the search to be case-sensitive
 
 ### Example usage
 `gradlew run --args="-p .\\Data -f -q print"`
