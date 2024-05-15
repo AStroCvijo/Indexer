@@ -75,8 +75,11 @@ fun main(args: Array<String>) {
             return
         }
 
-        // File paths for the tokenMap.json
-        val tokenMapFilePath = ".\\indexedFolders\\" + folderPath + "_tokenMap.json"
+        // File path for the tokenMap.json
+        var tokenMapFilePath = ".\\indexedFolders\\" + folderPath + "_tokenMap.json"
+        if(case){
+            tokenMapFilePath = ".\\indexedFolders\\" + folderPath + "CASE_tokenMap.json"
+        }
 
         // Logic if force = false
         if(!force){
