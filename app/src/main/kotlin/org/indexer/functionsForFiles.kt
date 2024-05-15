@@ -84,39 +84,3 @@ fun loadTokenMapFromJson(path: String): HashMap<String, MutableList<TokenInfo>> 
         hashMapOf()
     }
 }
-
-// Function to save Trie to a JSON file
-fun saveTrieToJson(root: TrieNode, path: String) {
-    val gson = Gson()
-    val jsonString = gson.toJson(root)
-
-    // Write JSON string to file
-    try {
-        FileWriter(path).use { writer ->
-            writer.write(jsonString)
-        }
-        println("Trie saved to $path successfully.")
-    } catch (e: Exception) {
-        println("Error occurred while saving Trie to $path: ${e.message}")
-    }
-}
-
-// Function to load trie data from a JSON file
-fun loadTrieFromJson(path: String): Trie {
-    val gson = Gson()
-    val file = File(path)
-
-    // Read JSON data from file
-    val jsonString = file.readText()
-
-    // Deserialize JSON into TrieNode
-    return try {
-        val root: TrieNode = gson.fromJson(jsonString, TrieNode::class.java)
-        val trie = Trie()
-        trie.root = root
-        trie
-    } catch (e: Exception) {
-        println("Error occurred while loading Trie from $path: ${e.message}")
-        Trie()
-    }
-}
