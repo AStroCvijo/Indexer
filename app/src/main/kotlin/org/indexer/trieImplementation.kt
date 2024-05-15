@@ -30,22 +30,17 @@ class Trie {
         node.end = true
     }
 
-    // Search the trie for a query
-    fun searchSubstrings(query: String): List<String> {
-        val results = mutableListOf<String>()
+    // Search the trie for a query and return true if found, false if not
+    fun search(query: String): Boolean {
         var node = root
 
-        for (char in query) {
-            if (!node.child.containsKey(char)) {
-                return emptyList()
+        for (char in query.lowercase()) {
+            if (!node.child.containsKey(char.lowercaseChar())) {
+                return false
             }
             node = node.child[char]!!
         }
 
-        if (node.end) {
-            results.add(query)
-        }
-
-        return results
+        return node.end
     }
 }
