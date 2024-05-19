@@ -42,12 +42,12 @@ This will indicate that you want the search to be case-sensitive
 
 | Command | Description |
 |---------|-------------|
-| `gradlew run --args="-p .\Data"` | Index a Folder Without Re-indexing or Querying |
-| `gradlew run --args="-p .\Data -f"` | Index a Folder and Force Re-indexing |
-| `gradlew run --args="-p .\Data -q print"` | Index a Folder and Query Without Case Sensitivity |
-| `gradlew run --args="-p .\Data -f -q print"` | Index a Folder, Force Re-indexing, and Query Without Case Sensitivity |
-| `gradlew run --args="-p .\Data -q print -c"` | Index a Folder, Query with Case Sensitivity |
-| `gradlew run --args="-p .\Data -f -q print -c"` | Index a Folder, Force Re-indexing, and Query with Case Sensitivity |
-| `gradlew run --args="-p .\Documents -q print"` | Index a Different Folder and Query Without Case Sensitivity |
-| `gradlew run --args="-p .\AnotherFolder -f -q print -c"` | Index a Folder, Force Re-indexing, and Perform Case-sensitive Search |
+| `gradlew run --args="-p .\\Data"` | Index a Folder Without Re-indexing or Querying |
+| `gradlew run --args="-p .\\Data -f"` | Index a Folder and Force Re-indexing |
+| `gradlew run --args="-p .\\Data -q print"` | Index a Folder and Query Without Case Sensitivity |
+| `gradlew run --args="-p .\\Data -f -q print"` | Index a Folder, Force Re-indexing, and Query Without Case Sensitivity |
+| `gradlew run --args="-p .\\Data -q print -c"` | Index a Folder, Query with Case Sensitivity |
+| `gradlew run --args="-p .\\Data -f -q print -c"` | Index a Folder, Force Re-indexing, and Query with Case Sensitivity |
+| `gradlew run --args="-p .\\Documents -q print"` | Index a Different Folder and Query Without Case Sensitivity |
+| `gradlew run --args="-p .\\AnotherFolder -f -q print -c"` | Index a Folder, Force Re-indexing, and Perform Case-sensitive Search |
 
