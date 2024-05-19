@@ -24,7 +24,7 @@ A CLI tool that indexes a given folder and allows efficient searching for string
 ```
 
 
-### Arguments guide 
+## Arguments guide 
 
 `-path or -p` followed by path to the folder you want to index e.g. `.\\Data`
 This will index the `.\\Data` folder and save it to `.\\indexedFolders` (the starting location of .\\\ is inside the app folder, so either move to folder you want to index there or navigate to it)
@@ -38,7 +38,16 @@ This will print all the occurrences of `print` in the given folder
 `-case or -c`
 This will indicate that you want the search to be case-sensitive
 
-### Example usage
-`gradlew run --args="-p .\\Data -f -q print"`
-This will index `.\\Data folder` and print all the occurrences of `print`
+## Examples
+
+| Command | Description |
+|---------|-------------|
+| `gradlew run --args="-p .\Data"` | Index a Folder Without Re-indexing or Querying |
+| `gradlew run --args="-p .\Data -f"` | Index a Folder and Force Re-indexing |
+| `gradlew run --args="-p .\Data -q print"` | Index a Folder and Query Without Case Sensitivity |
+| `gradlew run --args="-p .\Data -f -q print"` | Index a Folder, Force Re-indexing, and Query Without Case Sensitivity |
+| `gradlew run --args="-p .\Data -q print -c"` | Index a Folder, Query with Case Sensitivity |
+| `gradlew run --args="-p .\Data -f -q print -c"` | Index a Folder, Force Re-indexing, and Query with Case Sensitivity |
+| `gradlew run --args="-p .\Documents -q print"` | Index a Different Folder and Query Without Case Sensitivity |
+| `gradlew run --args="-p .\AnotherFolder -f -q print -c"` | Index a Folder, Force Re-indexing, and Perform Case-sensitive Search |
 
