@@ -13,7 +13,7 @@ A CLI tool that indexes a given folder and allows efficient searching for string
 3. Make sure you have [gradle](https://gradle.org/install/) installed on your machine
 4. Add Gradle to the PATH variable
 5. Use the command `gradle build` to build the app
-6. Set up `allowedExtensions.txt` file int the root directory e.g.
+6. Set up `allowedExtensions.txt` file in the root directory e.g.
 ```txt
 
   txt
