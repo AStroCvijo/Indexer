@@ -8,6 +8,7 @@ fun tokenize(code: String, path: String, startIndex: Int, case: Boolean): Pair<L
     val delimiters = Regex("\\s+|[{}()\\].,;+\\-/*%!=<>|&^~]+\n")
     val tokens = mutableListOf<TokenInfo>()
     var index = 0
+    var line = 1
 
     // Tokenize
     delimiters.findAll(code).forEach { matchResult ->
@@ -16,29 +17,17 @@ fun tokenize(code: String, path: String, startIndex: Int, case: Boolean): Pair<L
             val token = code.substring(index, dIndex)
             for (i in token.indices) {
                 for (j in i + 1..token.length) {
-                    if(case){
-                        tokens.add(
-                            TokenInfo(
-                                token.substring(i, j),
-                                path,
-                                startIndex + index + i,
-                                token.substring(i, j).hashCode().toString()
-                            )
-                        )
-                    } else {
-                        tokens.add(
-                            TokenInfo(
-                                token.substring(i, j),
-                                path,
-                                startIndex + index + i,
-                                token.substring(i, j).lowercase().hashCode().toString()
-                            )
-                        )
-                    }
+                    val tokenText = token.substring(i, j)
+                    val tokenHash = if (case) tokenText.hashCode().toString() else tokenText.lowercase().hashCode().toString()
+                    tokens.add(TokenInfo(tokenText, path, startIndex + index + i, tokenHash, line))
                 }
             }
         }
         index = dIndex + 1
+        // Update line number
+        if (matchResult.value.contains("\n")) {
+            line += matchResult.value.count { it == '\n' }
+        }
     }
 
     return Pair(tokens, startIndex + code.length)
