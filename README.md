@@ -8,12 +8,11 @@ A CLI tool that indexes a given folder and allows efficient searching for string
 
 ## Instructions
 
-1. Download the repository
-2. Open the terminal and navigate to the repository
-3. Make sure you have [gradle](https://gradle.org/install/) installed on your machine
-4. Add Gradle to the PATH variable
-5. Use the command `gradle build` to build the app
-6. Set up `allowedExtensions.txt` file in the root directory e.g.
+1. Clone the repository `git clone https://github.com/AStroCvijo/Indexer`
+2. Make sure you have [gradle](https://gradle.org/install/) installed on your machine
+3. Add Gradle to the PATH variable
+4. Use the command `gradle build` to build the app
+5. Set up `allowedExtensions.txt` file in the root directory e.g.
 ```txt
 
   txt
@@ -21,7 +20,7 @@ A CLI tool that indexes a given folder and allows efficient searching for string
   py
 
 ```
-7. Use the command `gradlew run --args=""` to run the app
+6. Use the command `gradlew run --args=""` to run the app
 
 
 ## Arguments guide 
@@ -38,6 +37,9 @@ This will print all the occurrences of `print` in the given folder
 `-case or -c`
 This will indicate that you want the search to be case-sensitive
 
+`-highlight or -h`
+This will print the line in which the string is located and highlight it
+
 ## Examples
 
 | Command | Description |
@@ -45,6 +47,7 @@ This will indicate that you want the search to be case-sensitive
 | `gradlew run --args="-p .\\Data"` | Index a Folder Without Re-indexing or Querying |
 | `gradlew run --args="-p .\\Data -f"` | Index a Folder and Force Re-indexing |
 | `gradlew run --args="-p .\\Data -q print"` | Index a Folder and Query Without Case Sensitivity |
+| `gradlew run --args="-p .\\Data -q print -h"` | Index a Folder, Query Without Case Sensitivity and Highlight|
 | `gradlew run --args="-p .\\Data -f -q print"` | Index a Folder, Force Re-indexing, and Query Without Case Sensitivity |
 | `gradlew run --args="-p .\\Data -q print -c"` | Index a Folder, Query with Case Sensitivity |
 | `gradlew run --args="-p .\\Data -f -q print -c"` | Index a Folder, Force Re-indexing, and Query with Case Sensitivity |
