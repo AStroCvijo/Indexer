@@ -1,6 +1,9 @@
 package org.indexer
 
 import java.io.File
+import org.fusesource.jansi.Ansi
+import org.fusesource.jansi.AnsiConsole
+import org.fusesource.jansi.Ansi.Color
 
 // Define the TokenInfo class
 data class TokenInfo(
@@ -26,7 +29,7 @@ fun insertToken(tokenInfo: TokenInfo) {
 
 // Main function
 fun main(args: Array<String>) {
-
+    AnsiConsole.systemInstall()
     println("RUN!")
 
     // No arguments provided
@@ -41,6 +44,7 @@ fun main(args: Array<String>) {
     var query = false
     var searchString = ""
     var case = false
+    var highlight = false
 
     // Parse arguments
     for (i in args.indices){
@@ -57,6 +61,9 @@ fun main(args: Array<String>) {
         if(args[i] == "-c" || args[i] == "-case"){
             case = true
         }
+        if (args[i] == "-h" || args[i] == "-highlight") {
+            highlight = true
+        }
     }
 
     // Execution logic based on parsed arguments
@@ -71,7 +78,7 @@ fun main(args: Array<String>) {
         }
 
         // Check if the query string exists
-        if (searchString.isEmpty()) {
+        if (query && searchString.isEmpty()) {
             println("Query string not provided.")
             return
         }
@@ -120,7 +127,29 @@ fun main(args: Array<String>) {
                     if (tokenInfoList.isNotEmpty()) {
                         println("Search Results:")
                         tokenInfoList.forEach { tokenInfo ->
-                            println("String '$searchString' found in file '${tokenInfo.fp}' in line ${tokenInfo.l}, position in file ${tokenInfo.p}")
+                            println("String '$searchString' found in '${tokenInfo.fp}', line ${tokenInfo.l}, position ${tokenInfo.p}")
+                            if (highlight){
+                                val file = File(tokenInfo.fp)
+                                var line = file.readText()
+                                var lineStart = tokenInfo.p
+                                var lineEnd = tokenInfo.p
+                                while (line[lineStart] != '\n'){
+                                    lineStart -= 1
+                                }
+                                lineStart += 1
+                                while (line[lineStart] == ' '){
+                                    lineStart += 1
+                                }
+                                while (line[lineEnd]!='\n'){
+                                    lineEnd += 1
+                                }
+                                line = line.substring(lineStart, lineEnd)
+                                val start = line.substring(0, tokenInfo.p - lineStart)
+                                var token = line.substring(tokenInfo.p - lineStart, tokenInfo.p - lineStart + searchString.length)
+                                token = Ansi.ansi().fg(Color.GREEN).a(token).reset().toString()
+                                val end = line.substring(tokenInfo.p - lineStart + searchString.length, line.length)
+                                println("$start$token$end\n")
+                            }
                         }
                         println("Found ${tokenInfoList.size} occurrences in the indexed folder")
                     }
@@ -153,7 +182,29 @@ fun main(args: Array<String>) {
                     if (tokenInfoList.isNotEmpty()) {
                         println("Search Results:")
                         tokenInfoList.forEach { tokenInfo ->
-                            println("String '$searchString' found in file '${tokenInfo.fp}' in line ${tokenInfo.l}, position in file ${tokenInfo.p}")
+                            println("String '$searchString' found in '${tokenInfo.fp}', line ${tokenInfo.l}, position ${tokenInfo.p}")
+                            if (highlight){
+                                val file = File(tokenInfo.fp)
+                                var line = file.readText()
+                                var lineStart = tokenInfo.p
+                                var lineEnd = tokenInfo.p
+                                while (line[lineStart] != '\n'){
+                                    lineStart -= 1
+                                }
+                                lineStart += 1
+                                while (line[lineStart] == ' '){
+                                    lineStart += 1
+                                }
+                                while (line[lineEnd]!='\n'){
+                                    lineEnd += 1
+                                }
+                                line = line.substring(lineStart, lineEnd)
+                                val start = line.substring(0, tokenInfo.p - lineStart)
+                                var token = line.substring(tokenInfo.p - lineStart, tokenInfo.p - lineStart + searchString.length)
+                                token = Ansi.ansi().fg(Color.GREEN).a(token).reset().toString()
+                                val end = line.substring(tokenInfo.p - lineStart + searchString.length, line.length)
+                                println("$start$token$end\n")
+                            }
                         }
                         println("Found ${tokenInfoList.size} occurrences in the indexed folder")
                     }
