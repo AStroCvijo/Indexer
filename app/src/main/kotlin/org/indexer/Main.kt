@@ -4,10 +4,11 @@ import java.io.File
 
 // Define the TokenInfo class
 data class TokenInfo(
-    val t: String, // token
+    val t: String,  // token
     val fp: String, // path
-    val p: Int,    // position
-    val h: String  //hash
+    val p: Int,     // position
+    val h: String,  // hash
+    val l: Int      // line number
 )
 
 // HashMap to store hashed tokens
@@ -119,7 +120,7 @@ fun main(args: Array<String>) {
                     if (tokenInfoList.isNotEmpty()) {
                         println("Search Results:")
                         tokenInfoList.forEach { tokenInfo ->
-                            println("String '$searchString' found in file '${tokenInfo.fp}' at position ${tokenInfo.p}")
+                            println("String '$searchString' found in file '${tokenInfo.fp}' in line ${tokenInfo.l}, position in file ${tokenInfo.p}")
                         }
                         println("Found ${tokenInfoList.size} occurrences in the indexed folder")
                     }
@@ -152,7 +153,7 @@ fun main(args: Array<String>) {
                     if (tokenInfoList.isNotEmpty()) {
                         println("Search Results:")
                         tokenInfoList.forEach { tokenInfo ->
-                            println("String '$searchString' found in file '${tokenInfo.fp}' at position ${tokenInfo.p}")
+                            println("String '$searchString' found in file '${tokenInfo.fp}' in line ${tokenInfo.l}, position in file ${tokenInfo.p}")
                         }
                         println("Found ${tokenInfoList.size} occurrences in the indexed folder")
                     }
