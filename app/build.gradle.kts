@@ -32,6 +32,7 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     implementation("com.google.code.gson:gson:2.8.9")
+    implementation("org.fusesource.jansi:jansi:2.3.2")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
