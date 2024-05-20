@@ -4,7 +4,7 @@
 Test task project created for the application to the JetBrains Internship ("Natural Language Code Search").<br />
 Date of creation: May, 2024 <br /><br />
 A CLI tool that indexes a given folder and allows efficient searching for string occurrences. <br /><br />
-***The code changed after the deadline for the JetBrains internship application because I found a better approach to the problem. If you only find the code that was submitted before the deadline relevant, here is that version of the code [Original Code](https://github.com/AStroCvijo/Indexer/tree/23845872b0fb4b433820288e9d52bbcd968e0701)***
+***I changed the code after the deadline for the JetBrains internship application. If you only find the code that was submitted before the deadline relevant, here is that version of the code [Original Code](https://github.com/AStroCvijo/Indexer/tree/23845872b0fb4b433820288e9d52bbcd968e0701)***
 
 ## Instructions
 
