@@ -2,8 +2,7 @@
 # File Indexer - CLI tool
 
 A CLI tool that indexes a given folder and allows efficient searching for string occurrences. <br /><br />
-Date of creation: May, 2024 <br /><br />
-
+Date of creation: May, 2024 <br/>
 ## Instructions
 
 1. Clone the repository `git clone https://github.com/AStroCvijo/Indexer`
